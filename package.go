@@ -172,6 +172,11 @@ func Verify(word, letter string) []int {
     RuneLetter := []rune(letter) // Convert the input letter to a rune slice for comparison
     var indices []int            // Initialize a slice to store indices where the letter is found
 
+    // Check if the target word is empty
+    if len(WordTab) == 0 {
+        return nil
+    }
+
     // Iterate through the target word to find occurrences of the input letter
     for i := 0; i < len(WordTab); i++ {
         if RuneLetter[0] == WordTab[i] {
@@ -186,7 +191,6 @@ func Verify(word, letter string) []int {
 
     return indices
 }
-
 // WordList is a function that returns a random word from a text file or an error if any occurs.
 // It takes the name of the text file as an argument and reads a list of words from the file.
 // It then selects a random word from the list and returns it.
